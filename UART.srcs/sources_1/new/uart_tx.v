@@ -21,6 +21,9 @@
 
 
 module uart_tx(
-
+    input wire clk,
+    input wire rst,
+    
+    output wire tx_data
     );
 endmodule

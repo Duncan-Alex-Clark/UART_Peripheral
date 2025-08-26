@@ -91,7 +91,7 @@ module registers(
     output wire w_DLH,
     
     output wire w_REVID1,
-    output wire w_REVID2,
+    output wire [7:0] w_REVID2,
     
     output wire UTRST,
     output wire URRST,
@@ -156,7 +156,7 @@ module registers(
             endcase
         end else if (cs & !re & we) begin // write register
             case (addr)
-                8'h0: THR <= wdata;
+                8'h0: THR <= {24'h0, THR_data};
                 8'h4: IER <= wdata;
                 8'h8: FCR <= wdata;
                 8'hC: LCR <= wdata;
